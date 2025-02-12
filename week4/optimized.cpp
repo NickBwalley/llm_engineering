@@ -16,12 +16,14 @@ double calculate(int64_t iterations, double param1, double param2) {
 
 int main() {
     auto start_time = std::chrono::high_resolution_clock::now();
-    double result = calculate(100'000'000, 4.0, 1.0) * 4.0;
-    auto end_time = std::chrono::high_resolution_clock::now();
     
-    std::chrono::duration<double> elapsed = end_time - start_time;
+    double result = calculate(100'000'000, 4.0, 1.0) * 4.0;
+    
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> execution_time = end_time - start_time;
+
     std::cout << std::fixed << std::setprecision(12) << "Result: " << result << std::endl;
-    std::cout << "Execution Time: " << std::setprecision(6) << elapsed.count() << " seconds" << std::endl;
+    std::cout << std::fixed << std::setprecision(6) << "Execution Time: " << execution_time.count() << " seconds" << std::endl;
 
     return 0;
 }
