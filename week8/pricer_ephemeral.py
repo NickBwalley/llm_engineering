@@ -5,7 +5,7 @@ from modal import App, Image
 
 app = modal.App("pricer")
 image = Image.debian_slim().pip_install("torch", "transformers", "bitsandbytes", "accelerate", "peft")
-secrets = [modal.Secret.from_name("hf-secret")]
+secrets = [modal.Secret.from_name("huggingface-secret")]
 
 # Constants
 
@@ -15,7 +15,7 @@ PROJECT_NAME = "pricer"
 HF_USER = "ed-donner" # your HF name here! Or use mine if you just want to reproduce my results.
 RUN_NAME = "2024-09-13_13.04.39"
 PROJECT_RUN_NAME = f"{PROJECT_NAME}-{RUN_NAME}"
-REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36"
+REVISION = "e8d637df551603dc86cd7a1598a8f44af4d7ae36" # the epoch that we got the best results before overfitting started!
 FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
 
 
